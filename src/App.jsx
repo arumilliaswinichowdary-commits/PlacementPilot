@@ -2,7 +2,9 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [questions, setQuestions] = useState([]);
+  const [hrOutput, setHrOutput] = useState([]);
+  const [pythonOutput, setPythonOutput] = useState([]);
+  const [sqlOutput, setSqlOutput] = useState([]);
   const [intro, setIntro] = useState("");
   const [resumeText, setResumeText] = useState("");
   const [resumeScore, setResumeScore] = useState(null);
@@ -46,17 +48,17 @@ function App() {
     "What is a Stored Procedure?"
   ];
 
-  const generateHR = () => {
-    setQuestions(hrQuestions);
-  };
+const generateHR = () => {
+  setHrOutput(hrQuestions);
+};
 
-  const generatePython = () => {
-    setQuestions(pythonQuestions);
-  };
+const generatePython = () => {
+  setPythonOutput(pythonQuestions);
+};
 
-  const generateSQL = () => {
-    setQuestions(sqlQuestions);
-  };
+const generateSQL = () => {
+  setSqlOutput(sqlQuestions);
+};
 
   const generateIntro = () => {
     setIntro(
@@ -122,41 +124,49 @@ function App() {
 
       <section className="tools">
 
-        <div className="card">
+  <div className="card">
 
-          <h2>🎤 HR Interview Generator</h2>
+    <h2>🎤 HR Interview Generator</h2>
 
-          <button onClick={generateHR}>
-            Generate HR Questions
-          </button>
+    <button onClick={generateHR}>
+      Generate HR Questions
+    </button>
 
-          {questions.map((q, index) => (
-            <p key={index}>✅ {q}</p>
-          ))}
+    {hrOutput.map((q, index) => (
+      <p key={index}>✅ {q}</p>
+    ))}
 
-        </div>
+  </div>
 
-        <div className="card">
+  <div className="card">
 
-          <h2>💻 Python Interview Generator</h2>
+    <h2>💻 Python Interview Generator</h2>
 
-          <button onClick={generatePython}>
-            Generate Python Questions
-          </button>
+    <button onClick={generatePython}>
+      Generate Python Questions
+    </button>
 
-        </div>
+    {pythonOutput.map((q, index) => (
+      <p key={index}>✅ {q}</p>
+    ))}
 
-        <div className="card">
+  </div>
 
-          <h2>🗄 SQL Interview Generator</h2>
+  <div className="card">
 
-          <button onClick={generateSQL}>
-            Generate SQL Questions
-          </button>
+    <h2>🗄 SQL Interview Generator</h2>
 
-        </div>
+    <button onClick={generateSQL}>
+      Generate SQL Questions
+    </button>
 
-      </section>
+    {sqlOutput.map((q, index) => (
+      <p key={index}>✅ {q}</p>
+    ))}
+
+  </div>
+
+</section>
 
       <section className="tools">
 
